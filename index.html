@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Quiz</title>
+</head>
+<body>
+    <!-- contains high score and time remaining; should be inline -->
+    <header>
+        <!-- display high score in header -->
+        <div class="scores">
+            <h2>View high scores</h2>
+        </div>
+        <!-- display time remaining in quiz; this will be updated in the script -->
+        <div class="timer">
+            <h2>Time: 60</h2>
+        </div>
+    </header>
+
+
+    <!-- main quiz content; score = questions answered correctly + time remaining -->
+    <section class="body-container">
+        <main> <!-- quiz content will go here -->
+            <h1>Quiz Question</h1>
+            <div class="quiz-container">
+                <!-- multiple choice answers will be dynamically generated from js script and placed here -->
+            </div>
+            <div class="underline"></div> <!-- for CSS styling; allows for line to separate quiz answers from the feedback received below -->
+            <h2>Question Result</h2> <!-- displays / updates when user enters correct / incorrect answer -->
+        </main>
+    </section>
+
+
+    <footer>
+        <h4>&copy;2022 Dan Brackenbury</h4>
+    </footer>
+
+
+    <!-- load js file last to avoid hangups if file fails to load -->
+    <script src="./assets/script/script.js"></script>
+</body>
+</html>
