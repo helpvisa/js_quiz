@@ -17,19 +17,15 @@ body {
 header {
     width: 100%;
     display: flex;
-    position: fixed;
-    top: 0;
-    right: 0;
+    flex-direction: row;
     justify-content: space-around;
-    padding: 20px;
+    padding: 20px 0px;
     background-color: #f0e0ff;
 }
-
 
 /* score marker */
 header .scores h2 {
     color: purple;
-
 }
 /* change to pointer when hovering to signify it is clickable */
 header .scores h2:hover {
