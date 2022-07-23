@@ -1,0 +1,122 @@
+/* wildcard (for whole page) */
+* {
+    color: black;
+    font-family: sans-serif;
+    margin: 0px;
+    text-align: center;
+}
+
+
+/* set default body background */
+body {
+    background-color:#fff0ff;
+}
+
+
+/* header bar */
+header {
+    width: 100%;
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #f0e0ff;
+}
+
+
+/* score marker */
+header .scores h2 {
+    color: purple;
+
+}
+/* change to pointer when hovering to signify it is clickable */
+header .scores h2:hover {
+    color: plum;
+    cursor: pointer;
+}
+
+
+/* main quiz body content */
+.body-container {
+    margin: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.body-container h1 {
+    font-size: 6vh;
+    margin: 10px;
+}
+.body-container h2 {
+    font-size: 4vh;
+    margin: 10px;
+    color: grey;
+
+}
+
+.body-container p {
+    width: 70%;
+    font-size: 2.8vh;
+    margin: 10px auto;
+}
+
+/* container that holds the answer cards */
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* answer cards */
+.qcard {
+    width: 25vw;
+    flex: 1;
+    margin: 10px auto;
+    padding: 10px;
+    border-color: black;
+    background-color:#d5a9ff;
+    border-style: solid;
+    border-radius: 2px;
+    border-width: 5px;
+}
+/* set answer card text alignment for consistency */
+.qcard p {
+    margin: 0px;
+    text-align: left;
+    font-size: 2.2vh;
+}
+/* change qcard when hovering */
+.qcard:hover {
+    background-color: #e2c3ff;
+    cursor: pointer;
+}
+/* increase spacing of top and bottom for first / last child respectively (more clear separation for text) */
+.qcard:first-child {
+    margin: 20px auto 10px auto;
+}
+.qcard:last-child {
+    margin: 10px auto 20px auto;
+}
+
+/* underline class */
+.underline {
+    width: 40%;
+    border-width: 0px 0px 2px 0px;
+    margin: 10px auto 20px auto;
+    border-style: solid;
+    border-color: grey;
+}
+
+
+/* footer bar */
+footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #f0e0ff;
+}

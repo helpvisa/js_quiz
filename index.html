@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
     <title>JavaScript Quiz</title>
 </head>
 <body>
@@ -11,7 +12,7 @@
     <header>
         <!-- display high score in header -->
         <div class="scores">
-            <h2>View high scores</h2>
+            <h2>High Scores</h2>
         </div>
         <!-- display time remaining in quiz; this will be updated in the script -->
         <div class="timer">
@@ -22,12 +23,27 @@
 
     <!-- main quiz content; score = questions answered correctly + time remaining -->
     <section class="body-container">
-        <main> <!-- quiz content will go here -->
-            <h1>Quiz Question</h1>
+        <main>
+            <!-- quiz content will go here -->
+            <h1>Coding Quiz Challenge</h1>
+            <p>Try to answer as many questions as you can within the time limit; just watch out, because wrong answers will make you lose more time!</p>
             <div class="quiz-container">
                 <!-- multiple choice answers will be dynamically generated from js script and placed here -->
+                <div class="qcard">
+                    <p>1. this is an answer</p>
+                </div>
+                <div class="qcard">
+                    <p>2. this is also an answer</p>
+                </div>
+                <div class="qcard">
+                    <p>3. this is still an answer</p>
+                </div>
+                <div class="qcard">
+                    <p>4. this could be an answer</p>
+                </div>
             </div>
-            <div class="underline"></div> <!-- for CSS styling; allows for line to separate quiz answers from the feedback received below -->
+            <div class="underline"></div>
+            <!-- for CSS styling; allows for line to separate quiz answers from the feedback received below -->
             <h2>Question Result</h2> <!-- displays / updates when user enters correct / incorrect answer -->
         </main>
     </section>
