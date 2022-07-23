@@ -25,26 +25,14 @@
     <section class="body-container">
         <main>
             <!-- quiz content will go here -->
-            <h1>Coding Quiz Challenge</h1>
-            <p>Try to answer as many questions as you can within the time limit; just watch out, because wrong answers will make you lose more time!</p>
-            <div class="quiz-container">
+            <h1 id="qText">Coding Quiz Challenge</h1>
+            <p id="qDesc">Try to answer as many questions as you can within the time limit; just watch out, because wrong answers will make you lose more time!</p>
+            <div class="quiz-container" id="quiz">
                 <!-- multiple choice answers will be dynamically generated from js script and placed here -->
-                <div class="qcard">
-                    <p>1. this is an answer</p>
-                </div>
-                <div class="qcard">
-                    <p>2. this is also an answer</p>
-                </div>
-                <div class="qcard">
-                    <p>3. this is still an answer</p>
-                </div>
-                <div class="qcard">
-                    <p>4. this could be an answer</p>
-                </div>
             </div>
             <div class="underline"></div>
             <!-- for CSS styling; allows for line to separate quiz answers from the feedback received below -->
-            <h2>Question Result</h2> <!-- displays / updates when user enters correct / incorrect answer -->
+            <h2 id="qRes">Question Result</h2> <!-- displays / updates when user enters correct / incorrect answer -->
         </main>
     </section>
 

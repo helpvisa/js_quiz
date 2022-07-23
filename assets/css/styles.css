@@ -79,10 +79,6 @@ header .scores h2:hover {
     border-style: solid;
     border-radius: 2px;
     border-width: 5px;
-}
-/* set answer card text alignment for consistency */
-.qcard p {
-    margin: 0px;
     text-align: left;
     font-size: 2.2vh;
 }
@@ -101,7 +97,7 @@ header .scores h2:hover {
 
 /* underline class */
 .underline {
-    width: 40%;
+    width: 40vw;
     border-width: 0px 0px 2px 0px;
     margin: 10px auto 20px auto;
     border-style: solid;
