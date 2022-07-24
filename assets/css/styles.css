@@ -58,6 +58,35 @@ header .scores h2:hover {
     margin: 10px auto;
 }
 
+/* container that displays high scores */
+.score-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* score display cards */
+.scorecard {
+    display: flex;
+    justify-content: space-between;
+    width: 30vw;
+    flex: 1;
+    margin: 10px auto;
+    padding: 10px;
+    border-color: #340064;
+    background-color:#d5a9ff;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 5px;
+    font-size: 2.2vh;
+    font-weight: 300;
+    text-align: left;
+}
+
+.scorecard span {
+    font-weight: 600;
+    font-style: oblique;
+}
+
 /* container that holds the answer cards */
 .quiz-container {
     display: flex;
