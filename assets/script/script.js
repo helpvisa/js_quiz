@@ -158,7 +158,8 @@ function gameOver() { // both for good jobs, *and* bad jobs!
         earning " + (points - timer) + " + " + timer + " points for time remaining.";
 
         // save score + prompt player for name if new high score, add scorecard button
-        if (points > highScores[maxHighScores - 1].score) {
+        if (highScores.length === 0 || highScores.length < maxHighScores || 
+            !highScores[maxHighScores - 1] || points > highScores[maxHighScores - 1].score) {
             var formEl = document.createElement("form");
             formEl.className = "qcard";
             formEl.innerHTML = "Your name: <input type='text' name='player-name'> <input type='submit'";
@@ -183,7 +184,8 @@ function gameOver() { // both for good jobs, *and* bad jobs!
         "Oof, time's up. Better luck next time. You earned " + points + " points for your efforts.";
 
         // save score + prompt player for name if new high score, add scorecard button
-        if (points > highScores[maxHighScores - 1].score) {
+        if (highScores.length === 0 || highScores.length < maxHighScores || 
+            !highScores[maxHighScores - 1] || points > highScores[maxHighScores - 1].score) {
             var formEl = document.createElement("form");
             formEl.className = "qcard";
             formEl.innerHTML = "Your name: <input type='text' name='player-name'> <input type='submit'";
@@ -333,7 +335,9 @@ function saveAndPopulateScores(event) {
 
     // sort scores
     highScores.sort(compareScores);
-    highScores.pop();
+    if (highScores.length > maxHighScores) {
+        highScores.pop();
+    }
 
     // display scores
     populateScores();
