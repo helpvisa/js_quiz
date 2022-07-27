@@ -96,7 +96,7 @@ var startingQuestions = [
         correct: "remove whitespace from both sides",
     },
     {
-        question: "string.replace('a','') will: ",
+        question: "string.replace(/a/g,'') will: ",
         a: ["remove every 'a' in the string", "replace every 'a' with a space", "replace every blank space with an 'a'", "set the string to empty"],
         correct: "remove every 'a' in the string",
     },
