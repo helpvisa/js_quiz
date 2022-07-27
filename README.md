@@ -9,6 +9,8 @@ The quiz contains 13 questions and stores up to six high scores.
 
 Assembled using HTML / CSS / JavaScript.
 
+Live site online at https://helpvisa.github.io/js_quiz_scs/
+
 ![Preview](./assets/images/preview.jpg)
 
 ### Additional questions taken from [DataFlair](https://data-flair.training/blogs/javascript-quiz/)
