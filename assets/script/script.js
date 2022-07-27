@@ -54,6 +54,52 @@ var startingQuestions = [
         a: ["boolean", "int", "float", "function"],
         correct: "function",
     },
+    {
+        question: "JavaScript is a ____-side programming language.",
+        a: ["client", "server", "both", "none"],
+        correct: "both",
+    },
+    {
+        question: "Which of the following will write the message 'Hello' in an alert box?",
+        a: ["alertBox('Hello');", "alert(Hello);", "msgAlert('Hello');", "alert('Hello');"],
+        correct: "alert('Hello');",
+    },
+    {
+        question: "Which of the following options returns the minimum between x and y?",
+        a: ["min(x,y)", "Math.min(x,y)", "Math.min(xy)", "min(xy)"],
+        correct: "Math.min(x,y)",
+    },
+    {
+        question: "Which of these statements will throw an error?",
+        a: ["function e(){}", "var e = function(){}", "function(){}", "var exec = null"],
+        correct: "function(){}",
+    },
+    {
+        question: "What is the output of the following piece of code: \
+        var x = 32; if (x % 10 === 0) {console.log('No remainder.');} else {console.log('Remainder.');}",
+        a: ["0", "2", "Remainder.", "No remainder."],
+        correct: "Remainder.",
+    },
+    {
+        question: "Elements can be added to the end of an array using: ",
+        a: ["array.push()", "array.add()", "array.concat()", "array.pop()"],
+        correct: "array.push()",
+    },
+    {
+        question: "Math.random() generates a random number between: ",
+        a: ["0 and 1", "0 and 1 (exclusive)", "1 and 2", "0 and 0.99"],
+        correct: "0 and 1 (exclusive)",
+    },
+    {
+        question: "The trim method, used on a string, will: ",
+        a: ["cap it at 16 characters", "remove whitespace from both sides", "remove spaces from the string", "make the string lowercase"],
+        correct: "remove whitespace from both sides",
+    },
+    {
+        question: "string.replace('a','') will: ",
+        a: ["remove every 'a' in the string", "replace every 'a' with a space", "replace every blank space with an 'a'", "set the string to empty"],
+        correct: "remove every 'a' in the string",
+    },
 ]
 
 // assign this to the working game's questions object (modifiable)
