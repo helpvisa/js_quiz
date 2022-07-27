@@ -21,6 +21,7 @@ header {
     justify-content: space-around;
     padding: 20px 0px;
     background-color: #f0e0ff;
+    font-size: 1.2vw;
 }
 
 /* score marker */
@@ -36,42 +37,49 @@ header .scores h2:hover {
 
 /* main quiz body content */
 .body-container {
-    margin: 100px;
+    margin: auto;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .body-container h1 {
-    font-size: 5vh;
+    font-size: 5vw;
     margin: 10px;
 }
 .body-container h2 {
-    font-size: 3.5vh;
+    font-size: 3.5vw;
     margin: 10px;
     color: grey;
 
 }
-
 .body-container p {
     width: 70%;
-    font-size: 2.8vh;
+    font-size: 2.8vw;
     margin: 10px auto;
 }
 
 /* container that displays high scores */
 .score-container {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    max-height: 40vh;
+    height: 100%;
 }
 
 /* score display cards */
 .scorecard {
     display: flex;
     justify-content: space-between;
-    width: 30vw;
-    flex: 1;
-    margin: 10px auto;
-    padding: 10px;
+    width: 40vw;
+    flex-shrink: 1;
+    overflow-y: auto;
+    margin: 2px;
+    padding: 5px;
     border-color: #340064;
     background-color:#d5a9ff;
     border-style: solid;
@@ -90,12 +98,32 @@ header .scores h2:hover {
 /* container that holds the answer cards */
 .quiz-container {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
+    justify-content: space-around;
+    align-items: space-around;
+    width: 100vw;
+    max-height: 40vh;
+    height: 100%;
 }
 
 /* answer cards */
 .qcard {
-    width: 25vw;
+    width: 30vw;
+    flex: 0 1 auto;
+    margin: 8px auto;
+    padding: 5px;
+    border-color: #340064;
+    background-color:#d5a9ff;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 5px;
+    text-align: center;
+    font-size: 2.2vw;
+}
+/* unclickable qcard (use diff name to disable hover effects) */
+.qcard-noclick {
+    width: 30vw;
     flex: 1;
     margin: 10px auto;
     padding: 10px;
@@ -105,20 +133,13 @@ header .scores h2:hover {
     border-radius: 20px;
     border-width: 5px;
     text-align: center;
-    font-size: 2.2vh;
+    font-size: 2.2vw;
 }
 /* change qcard when hovering */
 .qcard:hover {
     background-color: #e2c3ff;
     border-color: #5e17a0;
     cursor: pointer;
-}
-/* increase spacing of top and bottom for first / last child respectively (more clear separation for text) */
-.qcard:first-child {
-    margin: 20px auto 10px auto;
-}
-.qcard:last-child {
-    margin: 10px auto 20px auto;
 }
 
 /* underline class */
@@ -141,4 +162,49 @@ footer {
     justify-content: space-around;
     padding: 20px;
     background-color: #f0e0ff;
+}
+
+
+
+/*---------------------------------------------------------------*/
+/* media queries for differing screen sizes, largest to smallest  */
+@media screen and (max-width: 768px) { /* smaller desktop */
+    .body-container h1 {
+        font-size: 3.5vw;
+        margin: 10px;
+    }
+    .body-container h2 {
+        font-size: 3vw;
+        margin: 10px;
+        color: grey;
+    
+    }
+    .body-container p {
+        width: 70%;
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 480px) { /* phones */
+    .body-container h1 {
+        font-size: 3.5vw;
+        margin: 10px;
+    }
+    .body-container h2 {
+        font-size: 3vw;
+        margin: 10px;
+        color: grey;
+    
+    }
+    .body-container p {
+        width: 70%;
+        font-size: 2vw;
+    }
+
+    .qcard {
+        width: 50vw;
+    }
+    .qcard-noclick {
+        width: 50vw;
+    }
 }

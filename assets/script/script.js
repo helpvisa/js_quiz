@@ -17,7 +17,7 @@ var defaultTime = 60;  // default time for quiz is 60 seconds
 var timer = defaultTime; // set timer to default time
 var timerIntervalId = null; // the id for the setInterval function
 var points = 0; // player's total points
-var maxHighScores = 5; // max amount of high scores the game is allowed to save
+var maxHighScores = 6; // max amount of high scores the game is allowed to save
 var highScores = JSON.parse(localStorage.getItem("scores"));
 // create this array if highScores returns a false value (no saved data)
 if (!highScores) {
@@ -107,7 +107,7 @@ function welcomeScreen() {
     // clear placeholder text
     questionResultEl.textContent = ""
     // clear qcards and scores
-    var qCardsEl = document.querySelectorAll(".qcard");
+    var qCardsEl = document.querySelectorAll(".qcard, .qcard-noclick");
     for (var i = 0; i < qCardsEl.length; i++) {
         qCardsEl[i].remove();
     }
@@ -123,6 +123,7 @@ function welcomeScreen() {
     // ensure timer is the right colour (just in case)
     timer = defaultTime;
     timerEl.setAttribute("style", "color: black");
+    updateTimer(timer);
 
     // write intro to question element
     questionEl.textContent = "Javascript Code Quiz Challenge"
@@ -145,7 +146,7 @@ function welcomeScreen() {
 function gameOver() { // both for good jobs, *and* bad jobs!
     if (questions.length === 0) { // all questions answered; good job!
         // remove any lingering qCards
-        var answersEl = document.querySelectorAll(".qcard");
+        var answersEl = document.querySelectorAll(".qcard, .qcard-noclick");
         for (var i = 0; i < answersEl.length; i++) {
             answersEl[i].remove();
         }
@@ -161,8 +162,9 @@ function gameOver() { // both for good jobs, *and* bad jobs!
         if (highScores.length === 0 || highScores.length < maxHighScores || 
             !highScores[maxHighScores - 1] || points > highScores[maxHighScores - 1].score) {
             var formEl = document.createElement("form");
-            formEl.className = "qcard";
-            formEl.innerHTML = "Your name: <input type='text' name='player-name'> <input type='submit'";
+            formEl.className = "qcard-noclick";
+            formEl.innerHTML = "Your name: <br/> <input type='text' name='player-name'> <input type='submit'";
+            formEl.innerHTML +=  "<input type='submit' name='player-name'/>";
             formEl.addEventListener("submit", saveAndPopulateScores);
             quizEl.appendChild(formEl);
         }
@@ -172,7 +174,7 @@ function gameOver() { // both for good jobs, *and* bad jobs!
     }
     else { // ran out of time; bad job!
         // remove any lingering qCards
-        var answersEl = document.querySelectorAll(".qcard");
+        var answersEl = document.querySelectorAll(".qcard, .qcard-noclick");
         for (var i = 0; i < answersEl.length; i++) {
             answersEl[i].remove();
         }
@@ -187,8 +189,9 @@ function gameOver() { // both for good jobs, *and* bad jobs!
         if (highScores.length === 0 || highScores.length < maxHighScores || 
             !highScores[maxHighScores - 1] || points > highScores[maxHighScores - 1].score) {
             var formEl = document.createElement("form");
-            formEl.className = "qcard";
-            formEl.innerHTML = "Your name: <input type='text' name='player-name'> <input type='submit'";
+            formEl.className = "qcard-noclick";
+            formEl.innerHTML = "Your name: <br/> <input type='text' name='player-name'/>";
+            formEl.innerHTML +=  "<input type='submit' name='player-name'/>";
             formEl.addEventListener("submit", saveAndPopulateScores);
             quizEl.appendChild(formEl);
         }
@@ -208,7 +211,7 @@ function initQuestion(q) {
     showingResult = false;
 
     // remove any lingering qCards
-    var answersEl = document.querySelectorAll(".qcard");
+    var answersEl = document.querySelectorAll(".qcard, .qcard-noclick");
     for (var i = 0; i < answersEl.length; i++) {
         answersEl[i].remove();
     }
@@ -237,7 +240,7 @@ function checkAnswer(q, answer, id) {
 
     // remove qcards from display
     questionEl.textContent = "";
-    var answersEl = document.querySelectorAll(".qcard");
+    var answersEl = document.querySelectorAll(".qcard, .qcard-noclick");
     for (var i = 0; i < answersEl.length; i++) {
         if (i != parseInt(id)) {
             answersEl[i].remove();
@@ -252,7 +255,7 @@ function checkAnswer(q, answer, id) {
     }
     else {
         answersEl[parseInt(id)].setAttribute("style", "background-color: lightcoral; border-color: purple");
-        updateTimer(10); // subtract 10 seconds from timer
+        updateTimer(timer - 10); // subtract 10 seconds from timer
         result = false;
     }
 
@@ -278,7 +281,7 @@ function addPlayAgain() {
     var playAgainEl = document.createElement("div");
     playAgainEl.className = "qcard";
     playAgainEl.id = "play-again";
-    playAgainEl.textContent = "Play Again?";
+    playAgainEl.textContent = "Play?";
     quizEl.appendChild(playAgainEl);
 }
 
@@ -294,13 +297,15 @@ function createScorecard() {
 
 // display the local high scores in the scorechart 
 function populateScores() {
+    // stop timer
+    clearInterval(timerIntervalId);
     // reset Question elements
     questionEl.textContent = "High Scores";
     // clear these two just in case
     questionDescriptionEl.textContent = "";
     questionResultEl.textContent = "";
     // clear lingering cards
-    var cardElements = document.querySelectorAll(".qcard");
+    var cardElements = document.querySelectorAll(".qcard, .qcard-noclick");
     for (var i = 0; i < cardElements.length; i++) {
         cardElements[i].remove();
     }
@@ -370,7 +375,7 @@ function decrementTimer() {
 
 // can be called arbitrarily to modify timer by set amount
 function updateTimer(amount) {
-    timer -= amount; // subtract given amount
+    timer = amount; // set given amount
     timerEl.textContent = "Time: " + timer;
 
     if (timer < 1) {
