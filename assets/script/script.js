@@ -308,7 +308,7 @@ function checkAnswer(q, answer, id) {
     // pose new random question after timeout
     questions.splice(currentQuestionIndex, 1);
     currentQuestionIndex = Math.floor(Math.random() * questions.length);
-    if (questions.length > 0) {
+    if (questions.length > 0 && timer > 0) {
         setTimeout(initQuestion, 1000, questions[currentQuestionIndex]);
     }
     else {
@@ -422,7 +422,6 @@ function decrementTimer() {
 // can be called arbitrarily to modify timer by set amount
 function updateTimer(amount) {
     timer = amount; // set given amount
-    timerEl.textContent = "Time: " + timer;
 
     if (timer < 1) {
         timer = 0; // ensure no negative values are displayed
@@ -435,6 +434,9 @@ function updateTimer(amount) {
         timerEl.setAttribute("style", "color: black");
         gameOver();
     }
+
+    // apply at end in case timer fell below zero
+    timerEl.textContent = "Time: " + timer;
 }
 
 
